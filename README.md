@@ -26,3 +26,8 @@
 ### Arguments 
 * preds: A vector of predictions from the machine learning model
 * transformObj: The object outputted **IndData** after running **transform_to_ind** 
+
+
+
+
+## Look to file name **demo** for guidance on how to implemenet these two functions. 
