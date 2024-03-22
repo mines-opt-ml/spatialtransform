@@ -2,7 +2,7 @@
 
 ## transform_to_ind(formula, trainData, trainLocs, testData, testLocs, MaternParam=NULL, smoothness = 0.5, M = 30, ncores)
 
-### Description
+## Description
 **transform_to_ind** is a function designed to decorrelate spatially dependent data, specifically in the continuous univariate case.
 
 ### Arguments 
