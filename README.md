@@ -11,7 +11,7 @@
 * trainLocs: A matrix object containing the coordinates of the training data. The dimensions should be nx2.
 * testData: An object of class data.frame containing the data to be predicted.
 * testLocs: A matrix object containing the coordinates of the test data. The dimensions should be nx2.
-* MaternParams: A vector of two parameters: range and nugget. Range represents how fast the correlation decays with distance and Nugget represents the variability in one location. The default is NULL (rng, nug) where the range and nugget parameter are estimated automatically.
+* MaternParams: A vector of two parameters: range and nugget. **Range** represents how fast the correlation decays with distance and **nugget** represents the variability in one location. The default is NULL (rng, nug) where the range and nugget parameter are estimated automatically.
 * smoothness: The smoothness parameter, which controls the smoothness of the function. The default is 1/2 which results in an exponential kernel. 
 * M: The number of neighbors to consider when creating a correlation matrix for each individual observation. The default is 30.
 * ncores: The number of cores to parallelize the decorrelation process.
@@ -30,4 +30,4 @@
 
 
 
-## Look to file name **demo** for guidance on how to implemenet these two functions. 
+## Look to file named **demo** for guidance on how to implemenet these two functions. 
