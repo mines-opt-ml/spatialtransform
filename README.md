@@ -1,11 +1,13 @@
 # Spatial Transformation Function
+In this repository, there are two versions of the spatialtransform function. One in R and the other in Python. You can use either of them in their repsective folders. Below is documentation of for each function. 
 
-## transform_to_ind(formula, trainData, trainLocs, testData, testLocs, MaternParam=NULL, smoothness = 0.5, M = 30, ncores)
+## R
+### transform_to_ind(formula, trainData, trainLocs, testData, testLocs, MaternParam=NULL, smoothness = 0.5, M = 30, ncores)
 
-## Description
+#### Description
 **transform_to_ind** is a function designed to decorrelate spatially dependent data, specifically in the continuous univariate case.
 
-### Arguments 
+#### Arguments 
 * formula: An object of class "formula" describing the model to be decorrelated.
 * trainData: An object of class data.frame containing the training data with the response variable provided.
 * trainLocs: A matrix object containing the coordinates of the training data. The dimensions should be nx2.
@@ -18,16 +20,18 @@
 
   
 
-## back_transform_to_spatial(preds, transformObj)
+### back_transform_to_spatial(preds, transformObj)
 
-## Description
+#### Description
 **back_transform_to_spatial** is a function designed to back transform the predictions to their spatial state in the continous univariate case.
 
-### Arguments 
+#### Arguments 
 * preds: A vector of predictions from the machine learning model
 * transformObj: The object outputted **IndData** after running **transform_to_ind** 
 
 
 
 
-## Look to file named **demo** for guidance on how to implemenet these two functions. 
+#### Look to the folder named **R Function** for guidance on how to implemenet these two functions. 
+
+## Python 
