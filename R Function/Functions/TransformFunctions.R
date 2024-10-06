@@ -37,7 +37,7 @@ transform_to_ind <- function(formula,
   
   ## Define X and y matrices
   Xtrain <- model.matrix(formula, data=trainData)
-  ytrain <- matrix(trainData[,all.vars(formula)[1]], ncol=1)
+  ytrain <- as.matrix(trainData[,all.vars(formula)[1]], ncol=1)
   
   ## Apply decorrelating transform by location
   indData <- mclapply(1:nrow(Xtrain), FUN=function(idx){
@@ -65,7 +65,7 @@ transform_to_ind <- function(formula,
   }, mc.cores=ncores) # End mclapply()
   
   ## Apply decorrelating transform to test data
-  Xtest <- model.matrix(formula[-2], data=testData)
+  Xtest <- model.matrix(~ ., data=testData)
   indTestData <- mclapply(1:nrow(Xtest), FUN=function(idx){
     D <- rdist(matrix(testLocs[idx,], nrow=1), trainLocs)
     theNeighbors <- order(D)[1:M]
