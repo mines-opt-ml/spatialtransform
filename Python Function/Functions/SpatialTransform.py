@@ -1,11 +1,11 @@
 import numpy as np
 import pandas as pd
-from scipy.spatial.distance import cdist
 from joblib import Parallel, delayed
 from scipy.linalg import cholesky
-import Functions.mknnIndx as mknnIndx
+from scipy.spatial.distance import cdist
+
 import Functions.matern as matern
-from scipy.linalg import cholesky
+import Functions.mknnIndx as mknnIndx
 
 
 def process_row(
@@ -39,7 +39,6 @@ def process_row(
 def process_test_data(
     idx, testLocs, trainLocs, Xtest, Xtrain, ytrain, nugget, range_param, smoothness, M
 ):
-
     # Distance between test location and training locations
     D = cdist(testLocs[idx].reshape(1, -1), trainLocs)
     # Find the M nearest neighbors
@@ -63,7 +62,7 @@ def process_test_data(
     R_inv = chol_inv.T @ chol_inv
 
     # Calculate the weights
-    R12 = np.dot(R[0, 1:], R_inv)
+    R12 = np.dot(R[0, 1:], R_inv)  # can definitely improve this use of inverse
     w = 1 - R12 @ (R[1:, 0])
 
     # Transform the test data
@@ -90,7 +89,6 @@ class SpatialTransformer:
         M=30,
         ncores=1,
     ):
-
         nnList = mknnIndx.mkNNindx(trainLocs, M)
 
         ytrain = trainData[target]
